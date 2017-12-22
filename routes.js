@@ -7,7 +7,22 @@ var bodyParser = require('body-parser');
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 var multer = require('multer')
-var upload = multer({ dest: './uploads/' });
+
+// for random uuid name
+// var upload = multer({ dest: './uploads/' });
+
+// using file original name
+var storage = multer.diskStorage({
+    destination: function (request, file, callback) {
+        callback(null, './uploads/');
+    },
+    filename: function (request, file, callback) {
+        console.log(file);
+        callback(null, file.originalname)
+    }
+});
+ 
+var upload = multer({ storage: storage });
 
 //middle ware that is specific to this router
 router.use(function timeLog(req, res, next) {
