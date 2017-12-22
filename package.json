@@ -7,7 +7,7 @@
     "start": "node server.js"
   },
   "author": "Victor Kane",
-  "license": "ISC",
+  "license": "GPL-3.0",
   "dependencies": {
     "body-parser": "^1.18.2",
     "cookie-parser": "^1.4.3",
