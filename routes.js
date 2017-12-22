@@ -49,16 +49,19 @@ router.get('/process_get', function (req, res) {
 })
 
 //processing POST Request
-router.post('/process_post', urlencodedParser, function (req, res) {
+//router.post('/process_post', urlencodedParser, function (req, res) {
+router.post('/process_post', upload.array(), function (req, res) {
 
     // Prepare output in JSON format
-    response = {
-        first_name: req.body.first_name,
-        last_name: req.body.last_name,
-        message: 'Result from a POST request'
-    };
-    console.log(response);
-    res.end(JSON.stringify(response));
+    // response = {
+    //     first_name: req.body.first_name,
+    //     last_name: req.body.last_name,
+    //     message: 'Result from a POST request'
+    // };
+    // console.log(response);
+    // res.end(JSON.stringify(response));
+    console.log(req.body);
+    res.end(JSON.stringify(req.body));
 })
 
 //Multipart request (Accept one file where the name of the form field is named photo)
